@@ -75,12 +75,41 @@ int main()
     file >> data;
 
     vector<int> taux;
-    vector<string> date;
+    vector<string> days;
 
-    //for(auto&   )
+    for (int i = 0; i < data.size(); i++)
+    {
+        if (data[i]["fields"].contains("taux_co2"))
+        {
+            taux.push_back(data[i]["fields"]["taux_co2"].get<int>());
+        }
+
+    }
+
+    for(auto& pick : data)
+    {
+
+        if (pick["fields"].contains("date"))
+        {
+            days.push_back(pick["fields"]["date"].get<string>());
+
+        }
+    }
 
 
-    //cout << "taux_co2[50]:  " << data[50]["taux_co2"] << endl;
+
+    for(auto& j : days)
+    {
+        cout << "date[i]:  " << j << endl;
+    }
+
+
+
+
+
+
+    //cout << "Date: date[text] : " << data[1]["date"]<< endl;
+    //cout << "taux_co2[500]:  " << data[500]["taux_co2"] << endl;
     //cout << "taux_co2[int]:  " << data["taux_co2"]  << endl;
     //    cout << "Date: date[text] : " << data["date"]<< endl;
     //    cout << "Heure: heure[text] : " << data["heure"] << endl;
