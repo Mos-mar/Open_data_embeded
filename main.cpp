@@ -8,25 +8,12 @@
 #include <gdfonts.h>
 #include"nlohmann/json.hpp"
 #include<gdfontl.h>
+#include "datafetch.h"
+
 
 
 using namespace std;
 using json = nlohmann::json;
-const string data_url = "https://www.data.gouv.fr/fr/datasets/r/f0eb039b-0859-4df7-933b-58361c112919";
-const string json_filename = "CO2_data.json";
-
-void getJson()
-{
-    const string command = "wget --no-check-certificate  -O " + json_filename + " " + data_url;
-    int result = system(command.c_str());
-
-    if (result != 0)
-    {
-        cerr << "Error: Failed to download file." << endl;
-
-    }
-
-}
 
 
 void histogramme_CO2(const string& filename,const vector<string>& days, const vector<int>& taux)
@@ -81,11 +68,14 @@ void histogramme_CO2(const string& filename,const vector<string>& days, const ve
 
 int main()
 {
-    getJson();
-    cout << "Download complete  " << json_filename << " has been retrieved." << endl;
-    ifstream file(json_filename);
+
+    DataFetch data_CO2;
+    data_CO2.getJson();
+
     json data;
-    file >> data;
+    ifstream json_file("CO2_data.json");
+    json_file >> data;
+
 
     vector<int> taux;
     vector<string> days;
