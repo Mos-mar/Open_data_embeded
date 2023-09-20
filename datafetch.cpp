@@ -15,7 +15,6 @@ size_t write_data(void* contents, size_t size, size_t n_memb, std::string* respo
 
 void DataFetch::getJson() {
     CURL* curl;
-    std::string response;
     CURLcode result;
     curl = curl_easy_init();
     if (curl) {
@@ -28,10 +27,7 @@ void DataFetch::getJson() {
         if (result != CURLE_OK) {
             std::cerr << "Download error with curl: " << curl_easy_strerror(result) << std::endl;
         }
-        else {
-            // Process the response data here
-            std::cout << "Response: " << response << std::endl;
-        }
+
         curl_easy_cleanup(curl);
     }
 }

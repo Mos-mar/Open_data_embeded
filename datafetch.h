@@ -9,8 +9,7 @@ class DataFetch
 public:
     DataFetch();
     void getJson();
-
-
+    std::string response;
 
 private:
     const std::string data_url = "https://www.data.gouv.fr/fr/datasets/r/f0eb039b-0859-4df7-933b-58361c112919";
