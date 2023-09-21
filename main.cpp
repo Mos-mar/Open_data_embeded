@@ -18,7 +18,7 @@ using json = nlohmann::json;
 
 void histogramme_CO2(const string& filename,const vector<string>& days, const vector<int>& taux)
 {
-    const int image_width =1100;
+    const int image_width =1400;
     const int image_height = 600;
 
     gdImagePtr im = gdImageCreateTrueColor(image_width, image_height);
@@ -80,27 +80,26 @@ int main()
     vector<int> taux;
     vector<string> days;
 
-    for (int i = 0; i < 200; i+=20)
-    {
-        if (data[i]["fields"].contains("taux_co2"))
-        {
-            taux.push_back(data[i]["fields"]["taux_co2"].get<int>());
+    auto results = data["results"];
+    for (const auto& pick : results) {
+        if (pick.contains("taux_co2")) {
+            taux.push_back(pick["taux_co2"].get<int>());
         }
-
+        if (pick.contains("date_heure")) {
+            days.push_back(pick["date_heure"].get<string>());
+        }
     }
     sort(taux.begin(), taux.end());
-
-    for(int i = 0; i < 200; i+=20)
-    {
-
-
-        days.push_back(data[i]["fields"]["date"].get<string>());
-
-
-    }
     sort(days.begin(), days.end());
 
-
+    for(const auto& t : taux) {
+         std::cout << t << " ";
+     }
+    std::cout << std::endl;
+     for(const auto& d : days) {
+         std::cout << d << " ";
+     }
+     std::cout << std::endl;
 
     histogramme_CO2("emissionCO2.png",days,taux);
 

@@ -12,7 +12,7 @@ public:
     std::string response;
 
 private:
-    const std::string data_url = "https://www.data.gouv.fr/fr/datasets/r/f0eb039b-0859-4df7-933b-58361c112919";
+    const std::string data_url = "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/eco2mix-national-tr/records?select=taux_co2%20%2C%20date_heure&limit=100";
     const std::string json_filename = "CO2_data.json";
 
 };
