@@ -11,12 +11,17 @@ It retrieves data from a [source](https://www.data.gouv.fr/fr/datasets/donnees-e
     -Taux de CO2 (g/kWh): taux_co2[int] Estimation des émissions de carbone générées par la production d’électricité en France.
 
 ### Details
+
 #### Data source
+
+
    Data selected by [API](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/api/?disjunctive.nature)
    
    Json format was used
    
    Complete Data json [url](https://www.data.gouv.fr/fr/datasets/r/f0eb039b-0859-4df7-933b-58361c112919)
+
+   
 ### Method
      -libcurl was used to retrieve the data from the api
      -The Json file is parsed to retrieved only the desired data
