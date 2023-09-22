@@ -68,24 +68,20 @@ void histogramme_CO2(const string& filename,const vector<string>& days, const ve
 
 int main()
 {
-
+    //Creating object from DataFetch to be able to use the methods in the class
     DataFetch data_CO2;
+    //Using the getJson() method on data_CO2 object to retrieve data from API
     data_CO2.getJson();
+    //Parsing the data written in string response into the data json object
     json data = json::parse(data_CO2.response);
 
 
     vector<int> taux;
     vector<string> days;
 
+    //Selecting the array inside the json file that contains the wanted data
     auto  extraction_arr = data["results"];
-    //    for (const auto& pick : extraction_arr) {
-    //        if (pick.contains("taux_co2")) {
-    //            taux.push_back(pick["taux_co2"].get<int>());
-    //        }
-    //        if (pick.contains("date")) {
-    //            days.push_back(pick["date"].get<string>());
-    //        }
-    //    }
+    //Loop that selects specific data from the json file to put into vectors so we can sort and plot
     for (int i = 0; i < extraction_arr.size(); i+=10) {
         const auto& pick = extraction_arr[i];
         if (pick.contains("taux_co2")) {
@@ -96,9 +92,11 @@ int main()
         }
     }
 
+    //Sorting both vectors to have members in the right order
     sort(taux.begin(), taux.end());
     sort(days.begin(), days.end());
 
+    //Loop threw the vectors to see if we placed the correct data into them (debug help)
     for(const auto& t : taux) {
         std::cout << t << " ";
     }

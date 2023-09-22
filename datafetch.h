@@ -1,3 +1,4 @@
+//Definition of the DataFetch class
 #ifndef DATAFETCH_H
 #define DATAFETCH_H
 
@@ -9,7 +10,7 @@ class DataFetch
 public:
     DataFetch();
     void getJson();
-    std::string response;
+    std::string response; //string where the json data will be saved, avoids to download the file locally
 
 private:
     const std::string data_url = "https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/eco2mix-national-tr/records?select=taux_co2%20%2C%20date%2C%20date_heure&limit=100";
