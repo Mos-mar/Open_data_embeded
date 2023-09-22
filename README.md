@@ -13,7 +13,7 @@ It retrieves data from a [source](https://www.data.gouv.fr/fr/datasets/donnees-e
        -Json format was used
        -Complete Data json [url](https://www.data.gouv.fr/fr/datasets/r/f0eb039b-0859-4df7-933b-58361c112919)
 ### Method
-     -<sub>libcurl</sub> was used to retrieve the data from the api
+     -libcurl was used to retrieve the data from the api
      -The Json file is parsed to retrieved only the desired data
      -GD library is used to plot the data
 
@@ -21,13 +21,13 @@ It retrieves data from a [source](https://www.data.gouv.fr/fr/datasets/donnees-e
 # Buildroot and Qemu
 
    Buildroot config
-        -
-        1. Access the dir where buildroot is located <sub>/home/mariomoser/11_embeded_linux/buildroot/buildroot-2023.08</sub>
-        2. use <sub>make xconfig </sub> command
+        
+        1. Access the dir where buildroot is located home/mariomoser/11_embeded_linux/buildroot/buildroot-2023.08
+        2. use make xconfig  command
         3.Check required options :
-                        -<sub>libcurl </sub>
-                        -<sub>libjsoncpp/sub> (BR2_PACKAGE_JSON_FOR_MODERN_CPP et BR2_PACKAGE_LIBJSON)
-                        -<sub>Enable C++ support </sub>
-                        -<sub>GD</sub> and <sub>gdtopng</sub> (BR2_PACKAGE_GD)
+                        -libcurl 
+                        -libjsoncpp/sub> (BR2_PACKAGE_JSON_FOR_MODERN_CPP et BR2_PACKAGE_LIBJSON)
+                        -Enable C++ support 
+                        ->GD and gdtopng (BR2_PACKAGE_GD)
         4.Compiling with make
-        5.Cross compilation : <sub>/home/mariomoser/11_embeded_linux/buildroot/buildroot-2023.08/output/host/bin/aarch64-linux-g++ -o prog_qemu main.cpp datafetch.cpp -lcurl -lgd -lpng  -lstdc++fs</sub> _
+        5.Cross compilation : /home/mariomoser/11_embeded_linux/buildroot/buildroot-2023.08/output/host/bin/aarch64-linux-g++ -o prog_qemu main.cpp datafetch.cpp -lcurl -lgd -lpng  -lstdc++fs
