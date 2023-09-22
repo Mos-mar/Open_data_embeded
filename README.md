@@ -37,7 +37,7 @@ It retrieves data from a [source](https://www.data.gouv.fr/fr/datasets/donnees-e
         2. use make xconfig  command
         3.Check required options :
                         -libcurl 
-                        -libjsoncpp/sub> (BR2_PACKAGE_JSON_FOR_MODERN_CPP et BR2_PACKAGE_LIBJSON)
+                        -libjsoncpp (BR2_PACKAGE_JSON_FOR_MODERN_CPP et BR2_PACKAGE_LIBJSON)
                         -Enable C++ support 
                         -GD and gdtopng (BR2_PACKAGE_GD)
         4.Compiling with make
