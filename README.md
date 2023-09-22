@@ -24,7 +24,7 @@ It retrieves data from a [source](https://www.data.gouv.fr/fr/datasets/donnees-e
    
 ### Method
      -libcurl was used to retrieve the data from the api
-     -The Json file is parsed to retrieved only the desired data
+     -The Json file is parsed to retrieve only the desired data
      -GD library is used to plot the data
 
 
