@@ -26,7 +26,7 @@ It retrieves data from a [source](https://www.data.gouv.fr/fr/datasets/donnees-e
 # Buildroot and Qemu
 
 
-   ##Buildroot config
+   -Buildroot config
         
         1. Access the dir where buildroot is located home/mariomoser/11_embeded_linux/buildroot/buildroot-2023.08
         2. use make xconfig  command
