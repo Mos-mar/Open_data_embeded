@@ -10,7 +10,7 @@ It retrieves data from a [source](https://www.data.gouv.fr/fr/datasets/donnees-e
 
 ### Details
 #### Data source
-   -Data selected by [api](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/api/?disjunctive.nature)
+   -Data selected by [API](https://odre.opendatasoft.com/explore/dataset/eco2mix-national-tr/api/?disjunctive.nature)
    
    -Json format was used
    
@@ -31,6 +31,6 @@ It retrieves data from a [source](https://www.data.gouv.fr/fr/datasets/donnees-e
                         -libcurl 
                         -libjsoncpp/sub> (BR2_PACKAGE_JSON_FOR_MODERN_CPP et BR2_PACKAGE_LIBJSON)
                         -Enable C++ support 
-                        ->GD and gdtopng (BR2_PACKAGE_GD)
+                        -GD and gdtopng (BR2_PACKAGE_GD)
         4.Compiling with make
         5.Cross compilation : /home/mariomoser/11_embeded_linux/buildroot/buildroot-2023.08/output/host/bin/aarch64-linux-g++ -o prog_qemu main.cpp datafetch.cpp -lcurl -lgd -lpng  -lstdc++fs
